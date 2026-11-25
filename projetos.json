@@ -1,0 +1,38 @@
+{
+  "gerado": "2026-11-25T21:00:40+00:00",
+  "pastas": [
+    {
+      "pasta": "1as_civilizacoes",
+      "ficheiros": []
+    },
+    {
+      "pasta": "9ano",
+      "ficheiros": []
+    },
+    {
+      "pasta": "caminhos_nilo",
+      "ficheiros": [
+        {
+          "nome": "pelos-caminhos-do-nilo-3d.html",
+          "caminho": "caminhos_nilo/pelos-caminhos-do-nilo-3d.html",
+          "tamanho": 1222853
+        }
+      ]
+    },
+    {
+      "pasta": "egito_antigo",
+      "ficheiros": [
+        {
+          "nome": "Abrir_Egito_Antigo.html",
+          "caminho": "egito_antigo/Abrir_Egito_Antigo.html",
+          "tamanho": 3340109
+        },
+        {
+          "nome": "Egito_Antigo_Offline.zip",
+          "caminho": "egito_antigo/Egito_Antigo_Offline.zip",
+          "tamanho": 739966
+        }
+      ]
+    }
+  ]
+}
