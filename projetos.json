@@ -1,5 +1,5 @@
 {
-  "gerado": "2026-11-25T21:28:04+00:00",
+  "gerado": "2026-11-25T21:28:39+00:00",
   "pastas": [
     {
       "pasta": "1as_civilizacoes",
@@ -115,6 +115,10 @@
           "tamanho": 1
         }
       ]
+    },
+    {
+      "pasta": "vestigios_historicos",
+      "ficheiros": []
     }
   ]
 }
