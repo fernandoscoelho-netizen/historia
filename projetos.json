@@ -1,5 +1,5 @@
 {
-  "gerado": "2026-11-25T21:27:51+00:00",
+  "gerado": "2026-11-25T21:28:04+00:00",
   "pastas": [
     {
       "pasta": "1as_civilizacoes",
@@ -107,6 +107,11 @@
         {
           "nome": "jogo1.txt",
           "caminho": "guardioes_tempo/jogo1.txt",
+          "tamanho": 1
+        },
+        {
+          "nome": "jogo2.txt",
+          "caminho": "guardioes_tempo/jogo2.txt",
           "tamanho": 1
         }
       ]
