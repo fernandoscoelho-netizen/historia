@@ -1,5 +1,5 @@
 {
-  "gerado": "2026-11-25T21:10:33+00:00",
+  "gerado": "2026-11-25T21:24:03+00:00",
   "pastas": [
     {
       "pasta": "1as_civilizacoes",
@@ -19,6 +19,56 @@
     {
       "pasta": "9ano",
       "ficheiros": []
+    },
+    {
+      "pasta": "Arquivo1914",
+      "ficheiros": [
+        {
+          "nome": "GUIA.html",
+          "caminho": "Arquivo1914/GUIA.html",
+          "tamanho": 12098
+        },
+        {
+          "nome": "INSTRUCOES.txt",
+          "caminho": "Arquivo1914/INSTRUCOES.txt",
+          "tamanho": 2081
+        },
+        {
+          "nome": "NOTAS-E-TESTES.md",
+          "caminho": "Arquivo1914/NOTAS-E-TESTES.md",
+          "tamanho": 5524
+        },
+        {
+          "nome": "conteudos.js",
+          "caminho": "Arquivo1914/conteudos.js",
+          "tamanho": 21317
+        },
+        {
+          "nome": "estilo.css",
+          "caminho": "Arquivo1914/estilo.css",
+          "tamanho": 9151
+        },
+        {
+          "nome": "fontes.js",
+          "caminho": "Arquivo1914/fontes.js",
+          "tamanho": 4679
+        },
+        {
+          "nome": "index.html",
+          "caminho": "Arquivo1914/index.html",
+          "tamanho": 5522
+        },
+        {
+          "nome": "jogo.js",
+          "caminho": "Arquivo1914/jogo.js",
+          "tamanho": 23885
+        },
+        {
+          "nome": "som.js",
+          "caminho": "Arquivo1914/som.js",
+          "tamanho": 5750
+        }
+      ]
     },
     {
       "pasta": "caminhos_nilo",
