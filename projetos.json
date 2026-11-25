@@ -1,5 +1,5 @@
 {
-  "gerado": "2026-11-25T21:35:58+00:00",
+  "gerado": "2026-11-25T22:21:20+00:00",
   "pastas": [
     {
       "pasta": "1as_civilizacoes",
@@ -103,16 +103,25 @@
     },
     {
       "pasta": "guardioes_tempo",
+      "titulo": "Guardiões do Tempo",
+      "descricao": "Expedição em 3D pelas primeiras sociedades: 5 territórios e 15 missões, do Paleolítico aos legados das primeiras civilizações. História, 7.º ano, Tema 1. Funciona sem Internet.",
       "ficheiros": [
         {
-          "nome": "jogo1.txt",
-          "caminho": "guardioes_tempo/jogo1.txt",
-          "tamanho": 1
-        },
+          "nome": "Guardioes_do_Tempo_3D.html",
+          "caminho": "guardioes_tempo/Guardioes_do_Tempo_3D.html",
+          "tamanho": 1031133
+        }
+      ]
+    },
+    {
+      "pasta": "guardioes_tempo_2",
+      "titulo": "Guardiões do Tempo II",
+      "descricao": "Recupera os cinco Selos do Tempo em cenários 3D: pistas, desafios da Pedra do Tempo e a porta do Arquivo. História, 7.º ano, Tema 1. Funciona sem Internet.",
+      "ficheiros": [
         {
-          "nome": "jogo2.txt",
-          "caminho": "guardioes_tempo/jogo2.txt",
-          "tamanho": 1
+          "nome": "Guardioes_do_Tempo_II_3D.html",
+          "caminho": "guardioes_tempo_2/Guardioes_do_Tempo_II_3D.html",
+          "tamanho": 1132518
         }
       ]
     },
