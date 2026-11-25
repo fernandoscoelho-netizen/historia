@@ -204,6 +204,16 @@ h1 .ouro { text-shadow: none; filter: drop-shadow(0 0 8px var(--gesso)); }
 .ficheiros .peso { font-size: .8rem; color: var(--carvao-2); flex: none; }
 .rodape-cartao { margin-top: auto; padding-top: 8px; display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: .85rem; color: var(--carvao-2); }
 .rodape-cartao code { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .8rem; background: var(--folha-2); padding: 2px 6px; border-radius: 6px; }
+.lancar {
+  display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 6px;
+  padding: 13px 18px; border-radius: 12px; text-decoration: none;
+  font: 700 1.02rem var(--f-texto); color: #FBFAF6; background: var(--acento);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--acento) 30%, transparent);
+  transition: transform .15s ease, filter .2s ease, box-shadow .2s ease;
+}
+.lancar:hover { transform: translateY(-1px); filter: brightness(1.08); box-shadow: 0 10px 22px color-mix(in srgb, var(--acento) 38%, transparent); }
+.lancar svg { width: 20px; height: 20px; flex: none; }
+@media (prefers-color-scheme: dark) { .lancar { color: #14161B; } }
 .abrir { white-space: nowrap; flex: none; font-weight: 700; color: var(--acento); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
 .abrir:hover { text-decoration: underline; }
 .vazio {
@@ -289,19 +299,21 @@ const CONFIG = {
    com o nome "embelezado"; o info.txt da pasta (1.ª linha = título,
    restantes = descrição) sobrepõe-se ao que está aqui. */
 const PASTAS = {
-  "egito_antigo": { titulo: "Egito Antigo", etiqueta: "Civilizações dos rios", periodo: "c. 3100 – 30 a.C.", glifo: "ankh", acento: "#B98316",
+  "egito_antigo": { titulo: "Egito Antigo", etiqueta: "Civilizações dos rios", periodo: "c. 3100 – 30 a.C.", glifo: "ankh", acento: "#B98316", verbo: "o mapa 3D",
     descricao: "Pirâmides, templos e a vida nas margens do Nilo, para explorar em 3D: quem construiu, como se vivia e no que se acreditava." },
-  "1as_civilizacoes": { titulo: "As Primeiras Civilizações", etiqueta: "7.º ano", periodo: "c. 3500 – 500 a.C.", glifo: "agua", acento: "#2E7656",
+  "1as_civilizacoes": { titulo: "As Primeiras Civilizações", etiqueta: "7.º ano", periodo: "c. 3500 – 500 a.C.", glifo: "agua", acento: "#2E7656", verbo: "a viagem",
     descricao: "Uma viagem em 3D pela Mesopotâmia, pelo Egito, pelos Hebreus e pelos Fenícios: as cidades, a escrita, as leis e as rotas que mudaram o mundo." },
-  "caminhos_nilo": { titulo: "Pelos Caminhos do Nilo", etiqueta: "Viagem interativa", periodo: "Do Delta a Abu Simbel", glifo: "olho", acento: "#1E4F8A",
+  "caminhos_nilo": { titulo: "Pelos Caminhos do Nilo", etiqueta: "Viagem interativa", periodo: "Do Delta a Abu Simbel", glifo: "olho", acento: "#1E4F8A", verbo: "a viagem",
     descricao: "Uma viagem pelo rio que deu vida ao Egito: a cheia, as aldeias, os templos e os tesouros guardados nos museus." },
-  "9ano": { titulo: "Repórter do Século XX", etiqueta: "9.º ano · Tema I", periodo: "Séc. XX", glifo: "pena", acento: "#A3412B",
+  "9ano": { titulo: "Repórter do Século XX", etiqueta: "9.º ano · Tema I", periodo: "Séc. XX", glifo: "pena", acento: "#A3412B", verbo: "a reportagem",
     descricao: "Pega no bloco de notas e na câmara: investiga, entrevista e conta as notícias de um século que mudou o mundo." },
-  "Arquivo1914": { titulo: "Arquivo 1914: o cofre da História", etiqueta: "9.º ano · Tema I · Jogo", periodo: "Séc. XX", glifo: "sol", acento: "#7A5530",
-    descricao: "Um jogo de investigação: entra no arquivo, examina os três objetos de cada missão e reconstrói o que aconteceu no início do século XX." }
+  "Arquivo1914": { titulo: "Arquivo 1914: o cofre da História", etiqueta: "9.º ano · Tema I · Jogo", periodo: "Séc. XX", glifo: "sol", acento: "#7A5530", verbo: "o jogo",
+    descricao: "Um jogo de investigação: entra no arquivo, examina os três objetos de cada missão e reconstrói o que aconteceu no início do século XX." },
+  "guardioes_tempo": { titulo: "Guardiões do Tempo", etiqueta: "Jogos", periodo: "", glifo: "djed", acento: "#1E4F8A", verbo: "o jogo",
+    descricao: "Jogos para viajar entre épocas e pôr à prova o que aprendeste nas aulas de História." },
+  "vestigios_historicos": { titulo: "Vestígios Históricos", etiqueta: "Recurso", periodo: "", glifo: "escaravelho", acento: "#7A5530",
+    descricao: "Objetos, monumentos e documentos que o passado deixou: as pistas com que se escreve a História." }
 };
-/* Ficheiros de apoio que não aparecem no cartão quando a pasta tem um index.html */
-const APOIO = ["js", "css", "md", "map", "json", "txt"];
 const ACENTOS = ["#B98316", "#1E4F8A", "#2E7656", "#A3412B", "#7A5530"];
 const GLIFOS_CARTAO = ["ankh", "olho", "agua", "pena", "sol", "piramide", "djed", "escaravelho"];
 
@@ -416,8 +428,8 @@ async function carregar(forcado) {
     try { localStorage.setItem(CHAVE_CACHE, JSON.stringify({ pastas: dados.pastas, data: dados.data })); } catch {}
   }
   desenharCartoes(dados.pastas);
-  const total = dados.pastas.reduce((n, p) => n + p.ficheiros.length, 0);
-  const resumo = `${dados.pastas.length} ${dados.pastas.length === 1 ? "pasta" : "pastas"} · ${total} ${total === 1 ? "ficheiro" : "ficheiros"}`;
+  const prontos = dados.pastas.filter(p => lancador(p.ficheiros || [])).length;
+  const resumo = `${dados.pastas.length} ${dados.pastas.length === 1 ? "projeto" : "projetos"} · ${prontos} ${prontos === 1 ? "pronto" : "prontos"} a abrir`;
   const quando = dados.data ? new Date(dados.data).toLocaleString("pt-PT", { dateStyle: "short", timeStyle: "short" }) : null;
   const textos = {
     api: `${resumo} · lido agora do GitHub`,
@@ -455,6 +467,22 @@ const ROTULO_EXT = { html: "HTML", htm: "HTML", zip: "ZIP", pdf: "PDF", jpg: "IM
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const ligacao = c => c.split("/").map(encodeURIComponent).join("/");
 
+/* Escolhe o único HTML que lança o jogo ou projeto de uma pasta:
+   index.html > HTML com "abrir"/"jogo"/"iniciar" no nome > maior HTML que não seja guia/instruções.
+   Ficheiros vazios (marcadores) são ignorados. */
+function lancador(ficheiros) {
+  const htmls = ficheiros.filter(f => ["html", "htm"].includes(extensao(f.nome)) && (f.tamanho == null || f.tamanho > 200));
+  if (!htmls.length) return null;
+  const base = f => f.nome.split("/").pop().toLowerCase();
+  const nivel = f => f.nome.split("/").length;
+  const idx = htmls.filter(f => /^index\.html?$/.test(base(f))).sort((a, b) => nivel(a) - nivel(b))[0];
+  if (idx) return idx;
+  const nomeado = htmls.find(f => /abrir|jogo|iniciar|comecar|começar|lancar|lançar/.test(base(f)));
+  if (nomeado) return nomeado;
+  const semGuia = htmls.filter(f => !/guia|instru|leia|ler.?primeiro|readme|notas/.test(base(f)));
+  return (semGuia.length ? semGuia : htmls).sort((a, b) => (b.tamanho || 0) - (a.tamanho || 0))[0];
+}
+
 function desenharCartoes(lista) {
   const conhecidas = Object.keys(PASTAS);
   lista = [...lista].sort((a, b) => {
@@ -471,15 +499,12 @@ function desenharCartoes(lista) {
       etiqueta: base.etiqueta || "Recurso",
       periodo: base.periodo || "",
       glifo: base.glifo || GLIFOS_CARTAO[h % GLIFOS_CARTAO.length],
-      acento: base.acento || ACENTOS[h % ACENTOS.length]
+      acento: base.acento || ACENTOS[h % ACENTOS.length],
+      verbo: base.verbo || "o projeto"
     };
-    let ficheiros = (p.ficheiros || []).filter(f => !ignorado(f.nome.split("/").pop()));
-    const temIndex = ficheiros.some(f => /(^|\/)index\.html?$/i.test(f.nome));
-    if (temIndex) ficheiros = ficheiros.filter(f => !APOIO.includes(extensao(f.nome)));
-    ficheiros.sort((a, b) => (/(^|\/)index\.html?$/i.test(b.nome) - /(^|\/)index\.html?$/i.test(a.nome)) || ordenarFicheiros(a, b));
-    const principal = ficheiros.find(f => ["html", "htm"].includes(extensao(f.nome)));
+    const principal = lancador(p.ficheiros || []);
     const el = document.createElement("article");
-    el.className = "cartao" + (ficheiros.length ? "" : " em-breve");
+    el.className = "cartao" + (principal ? "" : " em-breve");
     el.style.setProperty("--acento", info.acento);
     el.style.setProperty("--i", i);
     el.innerHTML = `
@@ -491,15 +516,13 @@ function desenharCartoes(lista) {
         <span class="etiqueta">${esc(info.etiqueta)}</span>
         <h3>${esc(info.titulo)}</h3>
         <p>${esc(info.descricao)}</p>
-        ${ficheiros.length ? `<ul class="ficheiros">${ficheiros.map(f => `
-          <li><a href="${ligacao(f.caminho)}" ${["html","htm"].includes(extensao(f.nome)) ? "" : "download"} title="${esc(f.caminho)}">
-            <span class="ico">${ROTULO_EXT[extensao(f.nome)] || (extensao(f.nome).toUpperCase().slice(0, 4) || "—")}</span>
-            <span class="nome">${esc(nomeBonito(f.nome))}</span><span class="peso">${peso(f.tamanho)}</span>
-          </a></li>`).join("")}</ul>`
-        : `<div class="vazio">${svgGlifo("escaravelho", "")}<span><strong>Em preparação.</strong> Ainda não há ficheiros nesta pasta. Quando forem carregados, carrega em «Atualizar projetos».</span></div>`}
+        ${principal ? `<a class="lancar" href="${ligacao(principal.caminho)}" title="${esc(principal.caminho)}">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg>
+            <span>Abrir ${esc(info.verbo)}</span>
+          </a>`
+        : `<div class="vazio">${svgGlifo("escaravelho", "")}<span><strong>Em preparação.</strong> Este projeto ainda está a ser construído. Quando estiver pronto, carrega em «Atualizar projetos».</span></div>`}
         <div class="rodape-cartao">
           <code>/${esc(p.pasta)}</code>
-          ${principal ? `<a class="abrir" href="${ligacao(principal.caminho)}">Abrir recurso <span aria-hidden="true">→</span></a>` : ""}
         </div>
       </div>`;
     // inclinação suave e brilho a seguir o rato
