@@ -296,8 +296,12 @@ const PASTAS = {
   "caminhos_nilo": { titulo: "Pelos Caminhos do Nilo", etiqueta: "Viagem interativa", periodo: "Do Delta a Abu Simbel", glifo: "olho", acento: "#1E4F8A",
     descricao: "Uma viagem pelo rio que deu vida ao Egito: a cheia, as aldeias, os templos e os tesouros guardados nos museus." },
   "9ano": { titulo: "Repórter do Século XX", etiqueta: "9.º ano · Tema I", periodo: "Séc. XX", glifo: "pena", acento: "#A3412B",
-    descricao: "Pega no bloco de notas e na câmara: investiga, entrevista e conta as notícias de um século que mudou o mundo." }
+    descricao: "Pega no bloco de notas e na câmara: investiga, entrevista e conta as notícias de um século que mudou o mundo." },
+  "Arquivo1914": { titulo: "Arquivo 1914: o cofre da História", etiqueta: "9.º ano · Tema I · Jogo", periodo: "Séc. XX", glifo: "sol", acento: "#7A5530",
+    descricao: "Um jogo de investigação: entra no arquivo, examina os três objetos de cada missão e reconstrói o que aconteceu no início do século XX." }
 };
+/* Ficheiros de apoio que não aparecem no cartão quando a pasta tem um index.html */
+const APOIO = ["js", "css", "md", "map", "json", "txt"];
 const ACENTOS = ["#B98316", "#1E4F8A", "#2E7656", "#A3412B", "#7A5530"];
 const GLIFOS_CARTAO = ["ankh", "olho", "agua", "pena", "sol", "piramide", "djed", "escaravelho"];
 
@@ -330,7 +334,7 @@ function peso(b) {
   if (b < 1048576) return Math.round(b / 1024) + " KB";
   return (b / 1048576).toFixed(1).replace(".", ",") + " MB";
 }
-function nomeBonito(n) { const b = n.replace(/\/index\.html?$/i, "").replace(/\.[a-z0-9]+$/i, "").replace(/[_-]+/g, " ").trim(); return b.charAt(0).toUpperCase() + b.slice(1); }
+function nomeBonito(n) { if (/^index\.html?$/i.test(n)) return "Entrar no recurso"; const b = n.replace(/\/index\.html?$/i, "").replace(/\.[a-z0-9]+$/i, "").replace(/[_-]+/g, " ").trim(); return b.charAt(0).toUpperCase() + b.slice(1); }
 function extensao(n) { const m = /\.([a-z0-9]+)$/i.exec(n); return m ? m[1].toLowerCase() : ""; }
 function ignorado(nome) { return nome.startsWith(".") || CONFIG.ignorar.includes(nome.toLowerCase()); }
 function ordenarFicheiros(a, b) {
@@ -469,7 +473,10 @@ function desenharCartoes(lista) {
       glifo: base.glifo || GLIFOS_CARTAO[h % GLIFOS_CARTAO.length],
       acento: base.acento || ACENTOS[h % ACENTOS.length]
     };
-    const ficheiros = (p.ficheiros || []).filter(f => !ignorado(f.nome.split("/").pop())).sort(ordenarFicheiros);
+    let ficheiros = (p.ficheiros || []).filter(f => !ignorado(f.nome.split("/").pop()));
+    const temIndex = ficheiros.some(f => /(^|\/)index\.html?$/i.test(f.nome));
+    if (temIndex) ficheiros = ficheiros.filter(f => !APOIO.includes(extensao(f.nome)));
+    ficheiros.sort((a, b) => (/(^|\/)index\.html?$/i.test(b.nome) - /(^|\/)index\.html?$/i.test(a.nome)) || ordenarFicheiros(a, b));
     const principal = ficheiros.find(f => ["html", "htm"].includes(extensao(f.nome)));
     const el = document.createElement("article");
     el.className = "cartao" + (ficheiros.length ? "" : " em-breve");
