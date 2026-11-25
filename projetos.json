@@ -1,5 +1,5 @@
 {
-  "gerado": "2026-11-25T21:26:55+00:00",
+  "gerado": "2026-11-25T21:27:51+00:00",
   "pastas": [
     {
       "pasta": "1as_civilizacoes",
@@ -98,6 +98,16 @@
           "nome": "Egito_Antigo_Offline.zip",
           "caminho": "egito_antigo/Egito_Antigo_Offline.zip",
           "tamanho": 740395
+        }
+      ]
+    },
+    {
+      "pasta": "guardioes_tempo",
+      "ficheiros": [
+        {
+          "nome": "jogo1.txt",
+          "caminho": "guardioes_tempo/jogo1.txt",
+          "tamanho": 1
         }
       ]
     }
