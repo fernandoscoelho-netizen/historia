@@ -1,5 +1,5 @@
 {
-  "gerado": "2026-11-26T13:26:19+00:00",
+  "gerado": "2026-11-26T17:27:10+00:00",
   "pastas": [
     {
       "pasta": "1as_civilizacoes",
@@ -92,12 +92,12 @@
         {
           "nome": "Abrir_Egito_Antigo.html",
           "caminho": "egito_antigo/Abrir_Egito_Antigo.html",
-          "tamanho": 3341332
+          "tamanho": 3341688
         },
         {
           "nome": "Egito_Antigo_Offline.zip",
           "caminho": "egito_antigo/Egito_Antigo_Offline.zip",
-          "tamanho": 740395
+          "tamanho": 740700
         }
       ]
     },
