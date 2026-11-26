@@ -1,5 +1,5 @@
 {
-  "gerado": "2026-11-26T21:24:29+00:00",
+  "gerado": "2026-11-26T21:28:55+00:00",
   "pastas": [
     {
       "pasta": "1as_civilizacoes",
@@ -133,6 +133,12 @@
       "descricao": "Lisboa, 1 de novembro de 1756, um ano depois do terramoto. Segue em 3D as crianças que percorrem as casas arruinadas a pedir o Pão por Deus. Inclui também Lisboa em Azulejo 3D.",
       "ficheiros": [
         {
+          "nome": "Largo_da_SE_1756/Largo da Sé, 1756.html",
+          "caminho": "Pao_por_Deus/Largo_da_SE_1756/Largo da Sé, 1756.html",
+          "tamanho": 67477,
+          "principal": true
+        },
+        {
           "nome": "Grande_Panorama_Lisboa_Creditos.txt",
           "caminho": "Pao_por_Deus/Grande_Panorama_Lisboa_Creditos.txt",
           "tamanho": 51
@@ -158,7 +164,7 @@
           "tamanho": 17146
         }
       ],
-      "principal": "Pao_por_Deus/Lisboa_em_Azulejo_3D_offline.html",
+      "principal": "Pao_por_Deus/Largo_da_SE_1756/Largo da Sé, 1756.html",
       "paginas": [
         "Pao_por_Deus/Lisboa_em_Azulejo_3D_offline.html",
         "Pao_por_Deus/Largo_da_SE_1756/Largo da Sé, 1756.html"

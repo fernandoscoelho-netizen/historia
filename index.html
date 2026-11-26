@@ -354,10 +354,13 @@ function ordenarFicheiros(a, b) {
   return pa - pb || a.nome.localeCompare(b.nome, "pt");
 }
 function lerInfo(txt) {
-  const linhas = (txt || "").replace(/\r/g, "").split("\n").map(l => l.trim());
+  let linhas = (txt || "").replace(/\r/g, "").split("\n").map(l => l.trim());
+  // linha opcional «Abrir: caminho/da/pagina.html» escolhe a página que o cartão abre
+  let abrir;
+  linhas = linhas.filter(l => { const m = /^(abrir|abre|principal)\s*:\s*(.+)$/i.exec(l); if (m) { abrir = m[2].trim().replace(/^\/+|\/+$/g, ""); return false; } return true; });
   while (linhas.length && !linhas[0]) linhas.shift();
-  if (!linhas.length) return {};
-  return { titulo: linhas[0], descricao: linhas.slice(1).join(" ").trim() || undefined };
+  if (!linhas.length) return abrir ? { abrir } : {};
+  return { titulo: linhas[0], descricao: linhas.slice(1).join(" ").trim() || undefined, abrir };
 }
 
 /* ---------- Fontes de dados ---------- */
@@ -374,7 +377,7 @@ async function obterTexto(url) {
 async function doManifesto() {
   const m = await obterJSON(CONFIG.manifesto + "?t=" + Date.now());
   if (!m || !Array.isArray(m.pastas)) throw new Error("manifesto inválido");
-  return { pastas: m.pastas.map(p => ({ pasta: p.pasta, titulo: p.titulo, descricao: p.descricao, ficheiros: (p.ficheiros || []).map(f => ({ nome: f.nome, caminho: f.caminho, tamanho: f.tamanho })) })), fonte: "manifesto", data: m.gerado };
+  return { pastas: m.pastas.map(p => ({ pasta: p.pasta, titulo: p.titulo, descricao: p.descricao, ficheiros: (p.ficheiros || []).map(f => ({ nome: f.nome, caminho: f.caminho, tamanho: f.tamanho, principal: !!f.principal })) })), fonte: "manifesto", data: m.gerado };
 }
 
 /* 2) API do GitHub: uma única chamada à árvore do repositório */
@@ -402,7 +405,11 @@ async function daAPI() {
     infos.set(pasta, lerInfo(await obterTexto(url + "?t=" + Date.now())));
   }));
   return {
-    pastas: [...pastas].map(([pasta, ficheiros]) => ({ pasta, ...(infos.get(pasta) || {}), ficheiros })),
+    pastas: [...pastas].map(([pasta, ficheiros]) => {
+      const { abrir, ...info } = infos.get(pasta) || {};
+      if (abrir) ficheiros = [{ nome: abrir, caminho: `${pasta}/${abrir}`, principal: true }, ...ficheiros.filter(f => f.nome !== abrir)];
+      return { pasta, ...info, ficheiros };
+    }),
     fonte: "api", data: new Date().toISOString()
   };
 }
@@ -474,6 +481,8 @@ const ligacao = c => c.split("/").map(encodeURIComponent).join("/");
 function lancador(ficheiros) {
   const htmls = ficheiros.filter(f => ["html", "htm"].includes(extensao(f.nome)) && (f.tamanho == null || f.tamanho > 200));
   if (!htmls.length) return null;
+  const escolhido = htmls.find(f => f.principal);   // definido no info.txt («Abrir: …»)
+  if (escolhido) return escolhido;
   const base = f => f.nome.split("/").pop().toLowerCase();
   const nivel = f => f.nome.split("/").length;
   const idx = htmls.filter(f => /^index\.html?$/.test(base(f))).sort((a, b) => nivel(a) - nivel(b))[0];
