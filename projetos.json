@@ -1,5 +1,5 @@
 {
-  "gerado": "2026-11-26T17:27:10+00:00",
+  "gerado": "2026-11-26T17:38:12+00:00",
   "pastas": [
     {
       "pasta": "1as_civilizacoes",
@@ -19,6 +19,11 @@
     {
       "pasta": "9ano",
       "ficheiros": [
+        {
+          "nome": "O_Comboio_Vermelho_1918-1921.html",
+          "caminho": "9ano/O_Comboio_Vermelho_1918-1921.html",
+          "tamanho": 973333
+        },
         {
           "nome": "Reporter_Seculo_XX_9ano_TemaI.html",
           "caminho": "9ano/Reporter_Seculo_XX_9ano_TemaI.html",
