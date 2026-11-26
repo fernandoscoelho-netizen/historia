@@ -1,5 +1,5 @@
 {
-  "gerado": "2026-11-26T17:41:03+00:00",
+  "gerado": "2026-11-26T17:43:49+00:00",
   "pastas": [
     {
       "pasta": "1as_civilizacoes",
@@ -92,6 +92,10 @@
           "tamanho": 5750
         }
       ]
+    },
+    {
+      "pasta": "BD_9",
+      "ficheiros": []
     },
     {
       "pasta": "caminhos_nilo",
