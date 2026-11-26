@@ -1,5 +1,5 @@
 {
-  "gerado": "2026-11-26T17:40:06+00:00",
+  "gerado": "2026-11-26T17:41:03+00:00",
   "pastas": [
     {
       "pasta": "1as_civilizacoes",
@@ -33,7 +33,15 @@
     },
     {
       "pasta": "9ano_2",
-      "ficheiros": []
+      "titulo": "O Comboio Vermelho, 1918–1921",
+      "descricao": "Viagem em 3D num comboio blindado pela Rússia em guerra civil: Brest-Litovsk, as frentes dos Brancos, a requisição de cereais, a nacionalização e Kronstadt. História, 9.º ano, Tema I.2 (A Revolução Soviética). Funciona sem Internet.",
+      "ficheiros": [
+        {
+          "nome": "O_Comboio_Vermelho_1918-1921.html",
+          "caminho": "9ano_2/O_Comboio_Vermelho_1918-1921.html",
+          "tamanho": 973333
+        }
+      ]
     },
     {
       "pasta": "Arquivo1914",
