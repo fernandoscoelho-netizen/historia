@@ -1,5 +1,5 @@
 {
-  "gerado": "2026-11-26T18:04:42+00:00",
+  "gerado": "2026-11-26T20:36:23+00:00",
   "pastas": [
     {
       "pasta": "1as_civilizacoes",
@@ -95,8 +95,8 @@
     },
     {
       "pasta": "BD_9",
-      "titulo": "BD que ganha vida: a Europa e o mundo no limiar do século XX",
-      "descricao": "A BD do Tema I em 3D: 29 vinhetas animadas com as personagens e os diálogos da BD, pontos para explorar, mapas interativos, mini dicionário e um desafio no fim de cada capítulo (expansionismo colonial, 1.ª Guerra Mundial, o mundo depois da guerra e a Revolução Soviética). História, 9.º ano, Tema I. Funciona sem Internet.",
+      "titulo": "BD que ganha vida",
+      "descricao": "A BD do Tema I em 3D, com vinhetas animadas e desafios. Funciona sem Internet.",
       "ficheiros": [
         {
           "nome": "BD_que_ganha_vida_Tema_I.html",
