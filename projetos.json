@@ -1,5 +1,5 @@
 {
-  "gerado": "2026-11-26T20:36:23+00:00",
+  "gerado": "2026-11-26T21:01:43+00:00",
   "pastas": [
     {
       "pasta": "1as_civilizacoes",
@@ -136,9 +136,24 @@
       "descricao": "Expedição em 3D pelas primeiras sociedades: 5 territórios e 15 missões, do Paleolítico aos legados das primeiras civilizações. História, 7.º ano, Tema 1. Funciona sem Internet.",
       "ficheiros": [
         {
+          "nome": "FONTES-E-RIGOR.txt",
+          "caminho": "guardioes_tempo/FONTES-E-RIGOR.txt",
+          "tamanho": 5870
+        },
+        {
+          "nome": "FONTES-E-VERIFICACAO.md",
+          "caminho": "guardioes_tempo/FONTES-E-VERIFICACAO.md",
+          "tamanho": 11023
+        },
+        {
           "nome": "Guardioes_do_Tempo_3D.html",
           "caminho": "guardioes_tempo/Guardioes_do_Tempo_3D.html",
           "tamanho": 1031133
+        },
+        {
+          "nome": "Guia_Guardioes_do_Tempo.pdf",
+          "caminho": "guardioes_tempo/Guia_Guardioes_do_Tempo.pdf",
+          "tamanho": 5097242
         }
       ]
     },
