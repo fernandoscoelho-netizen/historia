@@ -1,5 +1,5 @@
 {
-  "gerado": "2026-11-26T21:22:08+00:00",
+  "gerado": "2026-11-26T21:24:29+00:00",
   "pastas": [
     {
       "pasta": "1as_civilizacoes",
@@ -14,6 +14,10 @@
           "caminho": "1as_civilizacoes/viagem-primeiras-civilizacoes.zip",
           "tamanho": 21857500
         }
+      ],
+      "principal": "1as_civilizacoes/viagem-primeiras-civilizacoes.html",
+      "paginas": [
+        "1as_civilizacoes/viagem-primeiras-civilizacoes.html"
       ]
     },
     {
@@ -29,6 +33,11 @@
           "caminho": "9ano/Reporter_Seculo_XX_9ano_TemaI.html",
           "tamanho": 2090384
         }
+      ],
+      "principal": "9ano/O_Comboio_Vermelho_1918-1921.html",
+      "paginas": [
+        "9ano/O_Comboio_Vermelho_1918-1921.html",
+        "9ano/Reporter_Seculo_XX_9ano_TemaI.html"
       ]
     },
     {
@@ -41,6 +50,10 @@
           "caminho": "9ano_2/O_Comboio_Vermelho_1918-1921.html",
           "tamanho": 973333
         }
+      ],
+      "principal": "9ano_2/O_Comboio_Vermelho_1918-1921.html",
+      "paginas": [
+        "9ano_2/O_Comboio_Vermelho_1918-1921.html"
       ]
     },
     {
@@ -91,6 +104,11 @@
           "caminho": "Arquivo1914/som.js",
           "tamanho": 5750
         }
+      ],
+      "principal": "Arquivo1914/index.html",
+      "paginas": [
+        "Arquivo1914/GUIA.html",
+        "Arquivo1914/index.html"
       ]
     },
     {
@@ -103,6 +121,10 @@
           "caminho": "BD_9/BD_que_ganha_vida_Tema_I.html",
           "tamanho": 1195221
         }
+      ],
+      "principal": "BD_9/BD_que_ganha_vida_Tema_I.html",
+      "paginas": [
+        "BD_9/BD_que_ganha_vida_Tema_I.html"
       ]
     },
     {
@@ -135,6 +157,11 @@
           "caminho": "Pao_por_Deus/pao por deus_prompt.docx",
           "tamanho": 17146
         }
+      ],
+      "principal": "Pao_por_Deus/Lisboa_em_Azulejo_3D_offline.html",
+      "paginas": [
+        "Pao_por_Deus/Lisboa_em_Azulejo_3D_offline.html",
+        "Pao_por_Deus/Largo_da_SE_1756/Largo da Sé, 1756.html"
       ]
     },
     {
@@ -145,6 +172,10 @@
           "caminho": "caminhos_nilo/pelos-caminhos-do-nilo-3d.html",
           "tamanho": 1602100
         }
+      ],
+      "principal": "caminhos_nilo/pelos-caminhos-do-nilo-3d.html",
+      "paginas": [
+        "caminhos_nilo/pelos-caminhos-do-nilo-3d.html"
       ]
     },
     {
@@ -160,6 +191,10 @@
           "caminho": "egito_antigo/Egito_Antigo_Offline.zip",
           "tamanho": 741645
         }
+      ],
+      "principal": "egito_antigo/Abrir_Egito_Antigo.html",
+      "paginas": [
+        "egito_antigo/Abrir_Egito_Antigo.html"
       ]
     },
     {
@@ -187,6 +222,10 @@
           "caminho": "guardioes_tempo/Guia_Guardioes_do_Tempo.pdf",
           "tamanho": 5097242
         }
+      ],
+      "principal": "guardioes_tempo/Guardioes_do_Tempo_3D.html",
+      "paginas": [
+        "guardioes_tempo/Guardioes_do_Tempo_3D.html"
       ]
     },
     {
@@ -199,6 +238,10 @@
           "caminho": "guardioes_tempo_2/Guardioes_do_Tempo_II_3D.html",
           "tamanho": 1132518
         }
+      ],
+      "principal": "guardioes_tempo_2/Guardioes_do_Tempo_II_3D.html",
+      "paginas": [
+        "guardioes_tempo_2/Guardioes_do_Tempo_II_3D.html"
       ]
     },
     {
@@ -209,6 +252,10 @@
           "caminho": "vestigios_historicos/vestigios-historicos.html",
           "tamanho": 18226447
         }
+      ],
+      "principal": "vestigios_historicos/vestigios-historicos.html",
+      "paginas": [
+        "vestigios_historicos/vestigios-historicos.html"
       ]
     }
   ]

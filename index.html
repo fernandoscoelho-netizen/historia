@@ -417,9 +417,10 @@ async function carregar(forcado) {
   aviso.classList.remove("ver");
   // ao carregar a página usa primeiro o manifesto (poupa pedidos à API);
   // o botão "Atualizar" vai diretamente à API para ver o estado mais recente.
-  const ordem = !emLinha ? [daCache, deBase]
-              : forcado ? [daAPI, doManifesto, daCache, deBase]
-              : [doManifesto, daAPI, daCache, deBase];
+  // O projetos.json é gerado pela GitHub Action a cada publicação e lido do próprio site,
+  // sem gastar consultas à API do GitHub (limite de 60 por hora em cada rede).
+  // A API só é usada se o projetos.json não estiver disponível.
+  const ordem = !emLinha ? [daCache, deBase] : [doManifesto, daAPI, daCache, deBase];
   let dados, erros = [];
   for (const f of ordem) {
     try { dados = await f(); break; } catch (e) { erros.push(e); }
@@ -440,7 +441,7 @@ async function carregar(forcado) {
   mostrarEstado(dados.fonte === "api" || dados.fonte === "manifesto" ? "ok" : "aviso", textos[dados.fonte]);
   if (!emLinha) {
     mostrarAviso("A página foi aberta a partir do disco, por isso não consegue ler o repositório. Publica-a no GitHub Pages (ou abre-a lá) para ver os ficheiros de cada pasta.");
-  } else if (dados.fonte !== "api" && forcado) {
+  } else if (forcado && (dados.fonte === "cache" || dados.fonte === "base")) {
     const limite = erros.some(e => e.status === 403 || e.status === 429);
     mostrarAviso(limite
       ? "O GitHub limita a 60 pedidos por hora cada rede (numa escola, todos partilham o mesmo limite). Mostro a última lista conhecida; tenta de novo daqui a pouco."
