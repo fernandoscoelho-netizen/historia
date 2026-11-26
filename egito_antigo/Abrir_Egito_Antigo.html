@@ -79206,7 +79206,8 @@ function personGeometry(kind){const key='person'+kind;if(GEO[key])return GEO[key
   add(at(new T.CylinderGeometry(.055,.065,.18,6),0,1.56,0),skin,0);
   add(at(new T.SphereGeometry(.13,10,8),0,1.72,0,0,0,0,1,1.12,1),skin,0);
   add(at(new T.SphereGeometry(.145,10,8,0,Math.PI*2,0,Math.PI*.62),0,1.75,-.025,-.25,0,0,1.02,1.15,1.05),'#1a1410',0);
-  for(const s of [-1,1]){const arm=new T.CylinderGeometry(.045,.055,.62,6);arm.translate(s*.26,1.15,0);arm.rotateZ(0);add(arm,skin,s<0?3:4);const hand=new T.SphereGeometry(.05,6,5);hand.translate(s*.26,.82,0);add(hand,skin,s<0?3:4);}
+  // Braços afastados do corpo: o ombro fica fora do tronco e o braço abre ligeiramente, para a mão não entrar no saiote ou no vestido.
+  const abre=kind===1?.14:.1;for(const s of [-1,1]){const limb=s<0?3:4;const ombro=new T.SphereGeometry(.062,8,6);ombro.translate(s*.25,1.455,0);add(ombro,skin,limb);const arm=new T.CylinderGeometry(.045,.052,.6,7);arm.translate(0,-.3,0);arm.rotateZ(s*abre);arm.translate(s*.255,1.455,0);add(arm,skin,limb);const hand=new T.SphereGeometry(.052,7,5);hand.translate(0,-.63,.01);hand.rotateZ(s*abre);hand.translate(s*.255,1.455,0);add(hand,skin,limb);}
   const g=merge(parts);g.computeVertexNormals();return GEO[key]=g;}
 const CROWD_MATS={};
 function crowdMaterial(amp,speed){const key=amp+'_'+speed;if(CROWD_MATS[key])return CROWD_MATS[key];const m=new T.MeshStandardMaterial({vertexColors:true,roughness:.8});m.onBeforeCompile=sh=>{sh.uniforms.uTime=TIME;sh.vertexShader='attribute float limb;\nuniform float uTime;\n'+sh.vertexShader.replace('#include <begin_vertex>',`#include <begin_vertex>
