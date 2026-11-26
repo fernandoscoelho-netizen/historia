@@ -1,5 +1,5 @@
 {
-  "gerado": "2026-11-26T17:38:12+00:00",
+  "gerado": "2026-11-26T17:40:06+00:00",
   "pastas": [
     {
       "pasta": "1as_civilizacoes",
@@ -30,6 +30,10 @@
           "tamanho": 2090384
         }
       ]
+    },
+    {
+      "pasta": "9ano_2",
+      "ficheiros": []
     },
     {
       "pasta": "Arquivo1914",
